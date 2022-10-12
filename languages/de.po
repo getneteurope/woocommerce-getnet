@@ -1,0 +1,85 @@
+# Copyright (C) 2022 -
+# This file is distributed under the GPL-2.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce GetNet Redirect 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wc-getnet-"
+"redirect\n"
+"POT-Creation-Date: 2022-08-03T18:03:59-05:00\n"
+"PO-Revision-Date: 2022-08-03 18:24-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+"X-Domain: wc_getnet_redirect\n"
+
+#. Plugin Name of the plugin
+msgid "WooCommerce GetNet Redirect"
+msgstr "WooCommerce GetNet Redirect"
+
+#. Plugin URI of the plugin
+#. Description of the plugin
+#. Author of the plugin
+#. Author URI of the plugin
+msgid "-"
+msgstr "-"
+
+#: app/GetNetRedirect/PurchaseCallback.php:30
+msgid "The order does not exists"
+msgstr ""
+
+#: app/GetNetRedirect/PurchaseCallback.php:56
+msgid "The order was paid"
+msgstr "Ihre Zahlung war erfolgreich"
+
+#: app/GetNetRedirect/PurchaseCallback.php:62
+msgid "The order was already payed"
+msgstr ""
+
+#: app/GetNetRedirect/PurchaseCallback.php:70
+msgid "Payment failed"
+msgstr "Ihre Zahlung ist fehlgelaufen"
+
+#: app/GetNetRedirect/PurchaseCallback.php:76
+msgid "Payment canceled"
+msgstr "Ihre Zahlung wurde storniert"
+
+#: app/GetNetRedirectGateway.php:44 app/GetNetRedirectGateway.php:46
+msgid "Enable gateway"
+msgstr ""
+
+#: app/GetNetRedirectGateway.php:50
+msgid "Payment Url"
+msgstr ""
+
+#: app/GetNetRedirectGateway.php:55
+msgid "Api Url"
+msgstr ""
+
+#: app/GetNetRedirectGateway.php:60
+msgid "User"
+msgstr "Benutzername"
+
+#: app/GetNetRedirectGateway.php:64
+msgid "Password"
+msgstr "Passwort"
+
+#: app/GetNetRedirectGateway.php:68
+msgid "Merchant account resolver category"
+msgstr "Händlerkonto \"resolver category\""
+
+#: app/GetNetRedirectGateway.php:72
+msgid "Merchant secret key"
+msgstr ""
+
+#: app/GetNetRedirectGateway.php:76
+msgid "Creditor ID"
+msgstr ""
+
+#: app/Kernel.php:46 app/Kernel.php:47
+msgid "Transactions"
+msgstr ""
