@@ -55,7 +55,6 @@ class WcOrderToRedirectionPayload
                     'street3' => null,
                     'city' => $order->get_billing_city(),
                     'postal-code' => $order->get_billing_postcode(),
-                    'state' => $order->get_billing_state(),
                     'country' => $order->get_billing_country(),
                 ]
             ],
@@ -68,7 +67,6 @@ class WcOrderToRedirectionPayload
                     'street3' => null,
                     'city' => $order->get_shipping_city(),
                     'postal-code' => $order->get_shipping_postcode(),
-                    'state' => $order->get_shipping_state(),
                     'country' => $order->get_shipping_country(),
                 ]
             ],

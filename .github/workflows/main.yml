@@ -1,0 +1,28 @@
+name: Release
+
+on: 
+  push:
+    tags:
+    - '*'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: Archive 
+      uses: thedoctor0/zip-release@main
+      with:
+        type: 'zip'
+        filename: 'woocommerce-getnet.zip'
+        exclusions: '*.git* LICENSE README.md'
+    - name: Publish
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "woocommerce-getnet.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        allowUpdates: true
