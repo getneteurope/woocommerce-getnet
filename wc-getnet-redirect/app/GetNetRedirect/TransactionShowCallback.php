@@ -181,6 +181,11 @@ class TransactionShowCallback
                 }
                 if ($this->transaction->last_transaction_type == Constants::TX_PENDING_DEBIT) {
                     $postOperations[] = [
+                        'id' => 'getnet_btn_cancel',
+                        'link' => $this->getNextOperationUrl(Constants::TX_VOID_PENDING_DEBIT),
+                        'label' => __('Cancel', 'wc_getnet_redirect')
+                    ];
+                    $postOperations[] = [
                         'id' => 'getnet_btn_refresh_status',
                         'link' => $this->getNextOperationUrl(Constants::TX_REFRESH_STATUS),
                         'label' => __('Update Status', 'wc_getnet_redirect')

@@ -5,7 +5,7 @@
  * Plugin Name:       WooCommerce GetNet Redirect
  * Plugin URI:        -
  * Description:       -
- * Version:           1.0.0
+ * Version:           1.0.3
  * Author:            -
  * Author URI:        -
  * License:           GPL-2.0+
