@@ -63,12 +63,19 @@ class RefundedCallback
         $client = GetNetApiClient::createFromSettings($this->settings);
         $response = $client->postEngineRestPayments($payload);
 
-        // Evaluate response
-        if ($response['payment']['transaction-state'] == Constants::TX_STATE_FAILED) {
-            $description = getNoteFromTransactionResponse($response);
+        try{
+            // Evaluate response
+            if ($response['payment']['transaction-state'] == Constants::TX_STATE_FAILED) {
+                $description = getNoteFromTransactionResponse($response);
+                $this->order->add_order_note($description);
+                throw new \Exception(__('Transaction state FAILED: ') . $description);
+            }
+        } catch (Exception $e) {
+            $description = "Fail Refund";
             $this->order->add_order_note($description);
             throw new \Exception(__('Transaction state FAILED: ') . $description);
         }
+       
 
         return $response;
     }
