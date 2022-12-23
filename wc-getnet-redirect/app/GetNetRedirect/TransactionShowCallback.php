@@ -69,7 +69,7 @@ class TransactionShowCallback
                 if ($this->transaction->last_transaction_type == Constants::TX_DEBIT) {
                     $postOperations[] = [
                         'id' => 'getnet_btn_refund',
-                        'link' => $this->getNextOperationUrl(Constants::TX_CREDIT),
+                        'link' => $this->getNextOperationUrl(Constants::TX_REFUND_DEBIT),
                         'label' => __('Refund', 'wc_getnet_redirect')
                     ];
                 }

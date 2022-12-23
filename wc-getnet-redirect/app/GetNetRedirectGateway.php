@@ -73,7 +73,7 @@ class GetNetRedirectGateway extends \WC_Payment_Gateway
             ],
             'getnet_redirect_option_password' => [
                 'title' => __('Password', 'wc_getnet_redirect'),
-                'type' => 'text',
+                'type' => 'password',
             ],
             'getnet_redirect_option_marc' => [
                 'title' => __('Merchant account resolver category', 'wc_getnet_redirect'),

@@ -35,6 +35,19 @@ class GetNetPaymentPageClient extends HttpClient
         // Set the token
         $user = $settings['getnet_redirect_option_user'];
         $password = $settings['getnet_redirect_option_password'];
+
+
+        $password = urldecode($settings['getnet_redirect_option_password']);
+        $password = str_replace("&amp;","&",$password);
+        $password = str_replace("&#36;","$",$password);
+        $password = str_replace("&#35;","#",$password);
+        $password = str_replace("&#33;","!",$password);
+        $password = str_replace("&#61;","=",$password);
+        $password = str_replace("&#42;","*",$password);
+        $password = str_replace("&#64;","@",$password);
+        $password = str_replace("&ntilde;","ñ",$password);
+        $password = str_replace("&Ntilde;","Ñ",$password);
+
         $token = base64_encode("{$user}:{$password}");
         $client->setBearerAuth($token, 'Basic');
         return $client;

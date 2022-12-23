@@ -32,10 +32,12 @@ class GetNetApiClient extends HttpClient
     {
         // Create the http client
         $baseUri = $settings['getnet_redirect_option_api_url'];
+
         $client = new GetNetApiClient($baseUri);
         // Set the token
         $user = $settings['getnet_redirect_option_user'];
-        $password = $settings['getnet_redirect_option_password'];
+        $password = urldecode($settings['getnet_redirect_option_password']);
+        
         $token = base64_encode("{$user}:{$password}");
         $client->setBearerAuth($token, 'Basic');
         return $client;

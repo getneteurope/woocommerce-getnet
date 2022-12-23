@@ -40,7 +40,9 @@ class WcOrderRefundedPayload
                 }
                 break;
             case Constants::PURCHASE_METHOD_BLIK:
-                // NO SUPPORT
+                if ($purchaseTransactionType === Constants::TX_DEBIT) {
+                    $transactionType = Constants::TX_REFUND_DEBIT;
+                }
                 break;
             case Constants::PURCHASE_METHOD_CREDITCARD:
                 if ($purchaseTransactionType === Constants::TX_CAPTURE_AUTHORIZATION) {
@@ -95,7 +97,7 @@ class WcOrderRefundedPayload
                 'system-name' => "wordpress-pagos",
                 'system-version' => \WC_VERSION,
                 'plugin-name' => "wc-getnet-redirect",
-                'plugin-version' => "1.0.0",
+                'plugin-version' => "1.0.5",
                 'integration-type' => "redirect"
             ],
             'request-id' => $requestId,
@@ -103,7 +105,7 @@ class WcOrderRefundedPayload
             'parent-transaction-id' => $transactionId
         ];
 
-        if ($purchasePaymentMethod === Constants::PURCHASE_METHOD_ALIPAY_XBORDER) {
+        if ($purchasePaymentMethod === Constants::PURCHASE_METHOD_ALIPAY_XBORDER || $purchasePaymentMethod === Constants::PURCHASE_METHOD_BLIK) {
             $payload['payment']['requested-amount'] = [
                 'value' => $order->get_total(),
                 'currency' => $order->get_currency(),
