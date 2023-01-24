@@ -70,7 +70,6 @@ function urlOrigin($s, $use_forwarded_host = false)
 function getNoteFromTransactionResponse($response)
 {
     $note = null;
-
     $requestId = $response['payment']['request-id'];
 
     if (str_contains($response['payment']['request-id'], '-')) {
@@ -85,11 +84,28 @@ function getNoteFromTransactionResponse($response)
         count($response['payment']['statuses']['status']) > 0
     ) {
         $note .= 'Request ID: ' . $requestId . ' // ';
-        foreach ($response['payment']['statuses']['status'] as $info) {
-            if (array_key_exists('code', $info) && array_key_exists('description', $info) && !str_contains($info, '201.0000')) {
-                $note .= "{$info['code']}: {$info['description']}.";
+        try{
+            $respSuccess = "error";
+            
+            foreach ($response['payment']['statuses']['status'] as $info) {
+                if (array_key_exists('code', $info) && array_key_exists('description', $info)) {
+                    if(str_contains($info['code'], "201.0000")){
+                        $respSuccess = "approved";
+                    } else {
+                        $note .= "{$info['code']}: {$info['description']}.";
+                    }
+                    
+                }
             }
+            
+            if ($respSuccess== "approved") {
+                $note = null;
+            }
+            
+        } catch (Exception $e) {
+            $note .= "{$info['description']}";
         }
+
     }
     return $note;
 }

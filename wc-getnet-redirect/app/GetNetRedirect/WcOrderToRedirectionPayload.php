@@ -74,7 +74,7 @@ class WcOrderToRedirectionPayload
                 'system-name' => "wordpress-pagos",
                 'system-version' => \WC_VERSION,
                 'plugin-name' => "wc-getnet-redirect",
-                'plugin-version' => "1.0.5",
+                'plugin-version' => "1.0.6",
                 'integration-type' => "redirect"
             ],
             'mandate' => [
